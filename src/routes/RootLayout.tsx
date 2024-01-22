@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import BottomNavigation from "../components/BottomNavigation";
+import BottomNavigation from "../components/nav/BottomNavigation";
 
 const RootLayout = () => {
   return (

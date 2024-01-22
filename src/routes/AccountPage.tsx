@@ -9,7 +9,7 @@ const AccountPage = () => {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch<AppDispatch>();
 
-  function onSubmit(data: FieldValues) {
+  function handleLogin(data: FieldValues) {
     dispatch(
       login({
         email: data.email,
@@ -25,7 +25,7 @@ const AccountPage = () => {
   return (
     <>
       {!user.isAuthenticated ? (
-        <LoginForm onLogin={onSubmit} />
+        <LoginForm onLogin={handleLogin} />
       ) : (
         <Account onLogout={handleLogout} />
       )}

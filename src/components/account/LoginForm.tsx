@@ -8,7 +8,7 @@ const LoginForm = ({ onLogin }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: {},
+    formState: { isSubmitting },
   } = useForm<FieldValues>();
 
   return (
@@ -40,7 +40,21 @@ const LoginForm = ({ onLogin }: Props) => {
               {...register("password")}
             />
           </label>
-          <button className="btn btn-primary w-full">Login</button>
+          <button
+            className={`btn btn-primary w-full ${
+              isSubmitting ? "disabled" : ""
+            }`}
+          >
+            {isSubmitting ? "Logging in ..." : "Login"}
+          </button>
+          <button
+            type="button"
+            className={`btn-disabled btn btn-primary w-full ${
+              isSubmitting ? "disabled" : ""
+            }`}
+          >
+            {isSubmitting ? "Logging in ..." : "Sign Up"}
+          </button>
         </form>
       </div>
     </div>
