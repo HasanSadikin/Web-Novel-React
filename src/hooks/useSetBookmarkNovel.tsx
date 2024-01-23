@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
 import { useSupabase } from "../utils/supabase";
 
-export function useBookmarkNovel(id: number): [boolean, boolean, () => void] {
+export function useSetBookmarkNovel(
+  id: number
+): [boolean, boolean, () => void] {
   const supabase = useSupabase();
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isBookmarkLoading, setIsBookmarkLoading] = useState(false);

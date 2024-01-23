@@ -1,10 +1,10 @@
 import { memo } from "react";
-import { useBookmarkNovel } from "../../../hooks/useSetBookmarkNovel";
-import { useLikeNovel } from "../../../hooks/useSetLikeNovel";
 import BookmarkIcon from "../../icons/BookmarkIcon";
 import StarIcon from "../../icons/StarIcon";
 import LoadingButton from "../../ui/buttons/LoadingButton";
 import ToggleButton from "../../ui/buttons/ToggleButton";
+import { useSetLikeNovel } from "../../../hooks/useSetLikeNovel";
+import { useSetBookmarkNovel } from "../../../hooks/useSetBookmarkNovel";
 
 interface MemoProps {
   value: boolean;
@@ -55,9 +55,9 @@ interface Props {
 }
 
 const DetailsHeader = ({ id, name, author }: Props) => {
-  const [isLike, isLikeLoading, toggleLike] = useLikeNovel(id);
+  const [isLike, isLikeLoading, toggleLike] = useSetLikeNovel(id);
   const [isBookmarked, isBookmarkLoading, toggleBookmark] =
-    useBookmarkNovel(id);
+    useSetBookmarkNovel(id);
 
   return (
     <div className="w-full bg-white h-16 fixed top-0 left-0 z-[10]">

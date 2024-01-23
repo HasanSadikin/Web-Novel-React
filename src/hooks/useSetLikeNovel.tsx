@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
 
-export function useLikeNovel(id: number): [boolean, boolean, () => void] {
+export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
   const supabase = useSupabase();
   const [isLiked, setIsLiked] = useState(false);
   const [isLikeLoading, setIsLikeLoading] = useState(false);
