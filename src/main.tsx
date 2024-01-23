@@ -10,6 +10,7 @@ import { store } from "./store/store.ts";
 import Search from "./routes/Search.tsx";
 import Bookmark from "./routes/Bookmark.tsx";
 import AccountPage from "./routes/AccountPage.tsx";
+import NovelPage from "./routes/NovelPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: <AccountPage />,
+      },
+      {
+        path: "/novel/:slug",
+        element: <NovelPage />,
       },
     ],
   },
