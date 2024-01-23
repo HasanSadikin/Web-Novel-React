@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { useBookmarkNovel } from "../../../hooks/useBookmarkNovel";
-import { useLikeNovel } from "../../../hooks/useLikeNovel";
+import { useBookmarkNovel } from "../../../hooks/useSetBookmarkNovel";
+import { useLikeNovel } from "../../../hooks/useSetLikeNovel";
 import BookmarkIcon from "../../icons/BookmarkIcon";
 import StarIcon from "../../icons/StarIcon";
 import LoadingButton from "../../ui/buttons/LoadingButton";
