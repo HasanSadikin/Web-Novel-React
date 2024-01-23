@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Novel, getBookmarkedNovels } from "../store/novel/novelSlice";
 import NovelList from "../components/novels/NovelList";
 import SkeletonList from "../components/novels/SkeletonList";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const Bookmark = () => {
   const novels = useSelector((state: RootState) => state.novels.value);
@@ -22,6 +23,8 @@ const Bookmark = () => {
 
     getBookmarks();
   }, [user.user]);
+
+  useScrollToTop();
 
   return (
     <>

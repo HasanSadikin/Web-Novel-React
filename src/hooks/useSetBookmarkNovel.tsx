@@ -7,12 +7,14 @@ import { useSupabase } from "../utils/supabase";
 export function useBookmarkNovel(id: number): [boolean, boolean, () => void] {
   const supabase = useSupabase();
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isBookmarkLoading, setIsBookmarkLoading] = useState(true);
+  const [isBookmarkLoading, setIsBookmarkLoading] = useState(false);
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
 
   useMemo(() => {
     const getLike = async () => {
+      if (!user.isAuthenticated) return;
+
       const { data } = await supabase
         .from("Bookmarks")
         .select()
@@ -25,7 +27,7 @@ export function useBookmarkNovel(id: number): [boolean, boolean, () => void] {
       setIsBookmarkLoading(false);
     };
     getLike();
-  }, [id]);
+  }, [id, user]);
 
   const bookomarkNovel = useCallback(
     async function () {

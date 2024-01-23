@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 export function useLikeNovel(id: number): [boolean, boolean, () => void] {
   const supabase = useSupabase();
   const [isLiked, setIsLiked] = useState(false);
-  const [isLikeLoading, setIsLikeLoading] = useState(true);
+  const [isLikeLoading, setIsLikeLoading] = useState(false);
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
 
   useMemo(() => {
     const getLike = async () => {
+      if (!user.isAuthenticated) return;
+
       const { data } = await supabase.from("Likes").select().eq("novel_id", id);
 
       if (data && data.length > 0) {
@@ -22,7 +24,7 @@ export function useLikeNovel(id: number): [boolean, boolean, () => void] {
       setIsLikeLoading(false);
     };
     getLike();
-  }, [id]);
+  }, [id, user]);
 
   const likeNovel = useCallback(
     async function () {

@@ -1,13 +1,11 @@
 import { useRef } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
-type Data = {
-  id: string;
-  name: string;
-};
-
 interface Props {
-  authors: Data[];
+  authors: {
+    id: number;
+    name: string;
+  }[];
   origins: string[];
   genres: string[];
   onSearch: (author: string, origin: string, genre: string) => void;

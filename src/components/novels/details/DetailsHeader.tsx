@@ -1,12 +1,10 @@
-import { FC, memo } from "react";
-import { Novel } from "../../store/novel/novelSlice";
-import BookmarkIcon from "../icons/BookmarkIcon";
-
-import { useLikeNovel } from "../../hooks/useLikeNovel";
-import LoadingButton from "../ui/buttons/LoadingButton";
-import StarIcon from "../icons/StarIcon";
-import { useBookmarkNovel } from "../../hooks/useBookmarkNovel";
-import ToggleButton from "../ui/buttons/ToggleButton";
+import { memo } from "react";
+import { useBookmarkNovel } from "../../../hooks/useBookmarkNovel";
+import { useLikeNovel } from "../../../hooks/useLikeNovel";
+import BookmarkIcon from "../../icons/BookmarkIcon";
+import StarIcon from "../../icons/StarIcon";
+import LoadingButton from "../../ui/buttons/LoadingButton";
+import ToggleButton from "../../ui/buttons/ToggleButton";
 
 interface MemoProps {
   value: boolean;
@@ -51,23 +49,22 @@ const MemoBookmarkButton = memo(function StarButton({
 });
 
 interface Props {
-  novel: Novel;
+  id: number;
+  name: string;
+  author: string;
 }
 
-const NovelDetails: FC<Props> = ({ novel }) => {
-  const [isLike, isLikeLoading, toggleLike] = useLikeNovel(novel.id);
-  const [isBookmarked, isBookmarkLoading, toggleBookmark] = useBookmarkNovel(
-    novel.id
-  );
+const DetailsHeader = ({ id, name, author }: Props) => {
+  const [isLike, isLikeLoading, toggleLike] = useLikeNovel(id);
+  const [isBookmarked, isBookmarkLoading, toggleBookmark] =
+    useBookmarkNovel(id);
 
   return (
-    <div className="bg-white h-16 ">
+    <div className="w-full bg-white h-16 fixed top-0 left-0 z-[10]">
       <div className="w-11/12 mx-auto grid grid-cols-2 h-full">
         <div className="flex flex-col justify-center">
-          <h1 className="text-black font-semibold truncate">
-            {novel.novel_name}
-          </h1>
-          <h1 className="text-gray-500 italic text-xs">by {novel.author}</h1>
+          <h1 className="text-black font-semibold truncate">{name}</h1>
+          <h1 className="text-gray-500 italic text-xs">by {author}</h1>
         </div>
         <div className="flex justify-end items-center gap-2 ">
           <MemoStarButton
@@ -86,4 +83,4 @@ const NovelDetails: FC<Props> = ({ novel }) => {
   );
 };
 
-export default NovelDetails;
+export default DetailsHeader;

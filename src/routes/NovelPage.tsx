@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useNovel } from "../hooks/useNovels";
-import NovelDetails from "../components/novels/NovelDetails";
+import NovelDetails from "../components/novels/details/NovelDetails";
 
 const NovelPage = () => {
   const params = useParams();
