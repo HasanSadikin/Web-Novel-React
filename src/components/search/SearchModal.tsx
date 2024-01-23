@@ -1,11 +1,13 @@
 import { useRef } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
+type Data = {
+  id: string;
+  name: string;
+};
+
 interface Props {
-  authors: {
-    id: number;
-    name: string;
-  }[];
+  authors: Data[];
   origins: string[];
   genres: string[];
   onSearch: (author: string, origin: string, genre: string) => void;
@@ -16,6 +18,7 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
   const form = useRef<HTMLButtonElement>(null);
 
   function handleSearch(data: FieldValues): void {
+    console.log(data);
     onSearch(data.author, data.origin, data.genre);
   }
 
@@ -27,20 +30,6 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
     <>
       <div className="w-11/12 mx-auto mb-5">
         <label htmlFor="my_modal_6" className="btn w-full btn-primary btn-md">
-          {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg> */}
           Filter
         </label>
       </div>
@@ -97,7 +86,7 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
           </form>
           <div className="modal-action">
             <form method="dialog" onSubmit={handleSubmit(handleSearch)}>
-              {/* if there is a button in form, it will close the modal */}
+              {/* A Button To Submit Form programatically, Because useForm disable it */}
               <button className="hidden" ref={form}></button>
               <button className="btn btn-error" onClick={() => reset()}>
                 Reset

@@ -1,5 +1,14 @@
 import { memo } from "react";
-import { UserState } from "../../store/user/userSlice";
+
+interface Props {
+  isAuthenticated: boolean;
+}
+
+const Avatar = ({ isAuthenticated }: Props) => {
+  return <>{!isAuthenticated ? <AccountIcon /> : <UserIcon />}</>;
+};
+
+export default memo(Avatar);
 
 const AccountIcon = () => (
   <>
@@ -32,13 +41,3 @@ const UserIcon = () => (
     <span className="btm-nav-label">Account</span>
   </>
 );
-
-interface Props {
-  user: UserState;
-}
-
-const Avatar = ({ user }: Props) => {
-  return <>{!user.isAuthenticated ? <AccountIcon /> : <UserIcon />}</>;
-};
-
-export default memo(Avatar);

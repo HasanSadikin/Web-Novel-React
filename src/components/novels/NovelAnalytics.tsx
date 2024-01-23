@@ -13,8 +13,10 @@ function NovelAnalytics({ amount = 1200, ...props }: Props) {
   ];
   return (
     <ul {...props}>
-      {data.map((x) => (
-        <li className="flex items-center gap-1 text-xs">{x}</li>
+      {data.map((x, i) => (
+        <li className="flex items-center gap-1 text-xs" key={i}>
+          {x}
+        </li>
       ))}
     </ul>
   );

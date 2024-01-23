@@ -1,6 +1,5 @@
 import { Novel } from "../../store/novel/novelSlice";
 import NovelItem from "./NovelItem";
-import SkeletonList from "./SkeletonList";
 
 interface Props {
   novels: Novel[] | null;
@@ -8,7 +7,7 @@ interface Props {
 
 const NovelList = ({ novels }: Props) => {
   if (!novels || novels.length === 0) {
-    return <SkeletonList amount={4} />;
+    return <p className="text-center">No Novel Found</p>;
   }
 
   return (

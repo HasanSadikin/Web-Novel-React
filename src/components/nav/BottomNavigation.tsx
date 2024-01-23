@@ -1,21 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store";
-import { useEffect } from "react";
-import { getUser, isAuthenticated } from "../../store/user/userSlice";
 import Avatar from "../ui/Avatar";
 import { Link, useLocation } from "react-router-dom";
 
+import { useUser } from "../../hooks/useUser";
+
 const BottomNavigation = () => {
-  const user = useSelector((state: RootState) => state.user);
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(isAuthenticated());
-  }, []);
-
-  useEffect(() => {
-    if (user.isAuthenticated) dispatch(getUser());
-  }, [user.isAuthenticated]);
+  const [, isAuthenticated] = useUser();
 
   const location = useLocation();
 
@@ -41,7 +30,7 @@ const BottomNavigation = () => {
           to="/account#"
           className={location.pathname.startsWith("/account") ? "active" : ""}
         >
-          <Avatar user={user} />
+          <Avatar isAuthenticated={isAuthenticated} />
         </Link>
       </div>
     </>
