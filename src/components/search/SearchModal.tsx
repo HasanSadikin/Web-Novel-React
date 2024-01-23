@@ -25,11 +25,9 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
 
   return (
     <>
-      <label
-        htmlFor="my_modal_6"
-        className="btn btn-circle btn-primary btn-lg fixed bottom-20 right-5"
-      >
-        <svg
+      <div className="w-11/12 mx-auto mb-5">
+        <label htmlFor="my_modal_6" className="btn w-full btn-primary btn-md">
+          {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -42,12 +40,14 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
             strokeLinejoin="round"
             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           />
-        </svg>
-      </label>
+        </svg> */}
+          Filter
+        </label>
+      </div>
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
+          <h3 className="font-bold text-lg text-center">Filter</h3>
           <form>
             <label className="form-control w-full max-w-xs">
               <div className="label">

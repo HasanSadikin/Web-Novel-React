@@ -1,20 +1,17 @@
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
-import { getNovels } from "../store/novel/novelSlice";
-import { SuspenseNovelList } from "../components/home/SuspenseNovelList";
-import { useEffect } from "react";
+import { useNovels } from "../hooks/useNovels";
+import NovelList from "../components/novels/NovelList";
+import SkeletonList from "../components/novels/SkeletonList";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function HomePage() {
-  const dispatch = useDispatch<AppDispatch>();
+  const [novels, isLoading] = useNovels();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTop();
 
   return (
-    <div className="mb-16">
+    <div className="mb-20">
       <h1 className="text-center text-2xl py-10 font-bold">Home</h1>
-      <SuspenseNovelList action={dispatch(getNovels())} />
+      {isLoading ? <SkeletonList amount={3} /> : <NovelList novels={novels} />}
     </div>
   );
 }

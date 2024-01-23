@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import { useEffect, useState } from "react";
 import { Novel, getBookmarkedNovels } from "../store/novel/novelSlice";
-import NovelList from "../components/home/NovelList";
-import SkeletonList from "../components/home/SkeletonList";
+import NovelList from "../components/novels/NovelList";
+import SkeletonList from "../components/novels/SkeletonList";
 
 const Bookmark = () => {
   const novels = useSelector((state: RootState) => state.novels.value);
