@@ -1,11 +1,13 @@
+import { memo } from "react";
 import { useSupabaseImage } from "../../hooks/useSupabaseImage";
 
 interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
   imagePath: string;
 }
 
-export function Image({ imagePath, ...props }: Props) {
+function Image({ imagePath, ...props }: Props) {
   const [image, isLoading] = useSupabaseImage(imagePath);
+  console.log("render image");
   return (
     <>
       {!isLoading && <img src={image} {...props} />}
@@ -13,3 +15,5 @@ export function Image({ imagePath, ...props }: Props) {
     </>
   );
 }
+
+export default memo(Image);

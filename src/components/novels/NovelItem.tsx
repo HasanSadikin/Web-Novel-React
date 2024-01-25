@@ -1,5 +1,5 @@
 import { Novel } from "../../store/novel/novelSlice";
-import { Image } from "../ui/Image";
+import Image from "../ui/Image";
 import NovelItemDetails from "./NovelItemDetails";
 
 interface Props {
