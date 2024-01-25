@@ -24,6 +24,7 @@ function NovelItem({ novel }: Props) {
         origin={novel.origin}
         description={novel.description}
         genres={novel.genres}
+        author_id={novel.author_id}
       />
     </li>
   );

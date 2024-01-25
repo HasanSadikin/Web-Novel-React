@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import { useNovelFilterParams } from "../../hooks/useNovelFilterParams";
 
 interface Props {
   authors: {
@@ -12,11 +13,11 @@ interface Props {
 }
 
 export function SearchModal({ authors, origins, genres, onSearch }: Props) {
+  const [authorParams, genreParams, originParams] = useNovelFilterParams();
   const { register, handleSubmit, reset } = useForm();
   const form = useRef<HTMLButtonElement>(null);
 
   function handleSearch(data: FieldValues): void {
-    console.log(data);
     onSearch(data.author, data.origin, data.genre);
   }
 
@@ -44,9 +45,15 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
                 className="select select-bordered"
                 {...register("author")}
               >
-                <option value="all">All</option>
+                <option value="all" selected={authorParams === "all"}>
+                  All
+                </option>
                 {authors?.map((x) => (
-                  <option value={x.id} key={x.id}>
+                  <option
+                    value={x.id}
+                    key={x.id}
+                    selected={Number(authorParams) === x.id}
+                  >
                     {x.name}
                   </option>
                 ))}
@@ -60,9 +67,11 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
                 className="select select-bordered"
                 {...register("origin")}
               >
-                <option value="all">All</option>
+                <option value="all" selected={originParams === "all"}>
+                  All
+                </option>
                 {origins?.map((x) => (
-                  <option value={x} key={x}>
+                  <option value={x} key={x} selected={originParams === x}>
                     {x}
                   </option>
                 ))}
@@ -73,9 +82,11 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
                 <span className="label-text">Genre</span>
               </div>
               <select className="select select-bordered" {...register("genre")}>
-                <option value="all">All</option>
+                <option value="all" selected={genreParams === "all"}>
+                  All
+                </option>
                 {genres?.map((x) => (
-                  <option value={x} key={x}>
+                  <option value={x} key={x} selected={genreParams === x}>
                     {x}
                   </option>
                 ))}

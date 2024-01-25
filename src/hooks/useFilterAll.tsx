@@ -1,31 +1,31 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Novel } from "../store/novel/novelSlice";
+import { useNovelFilterParams } from "./useNovelFilterParams";
 
 export function useFilterAll(
   novels: Novel[] | null
 ): [Novel[] | null, (author: string, genre: string, origin: string) => void] {
-  const [author, setAuthor] = useState("all");
-  const [genre, setGenre] = useState("all");
-  const [origin, setOrigin] = useState("all");
-
-  function handleSearch(author: string, origin: string, genre: string): void {
-    setAuthor(author);
-    setGenre(genre);
-    setOrigin(origin);
-  }
+  const [authorParams, genreParams, originParams, handleSearch] =
+    useNovelFilterParams();
 
   const searchResult = useMemo(() => {
     if (novels === null) return null;
 
     const _novels = [...novels]
-      .filter((novel) => author === "all" || String(novel.author_id) === author)
-      .filter((novel) => origin === "all" || novel.origin === origin)
       .filter(
-        (novel) => genre === "all" || novel.genres.split(",").includes(genre)
+        (novel) =>
+          authorParams === "all" || String(novel.author_id) === authorParams
+      )
+      .filter(
+        (novel) => originParams === "all" || novel.origin === originParams
+      )
+      .filter(
+        (novel) =>
+          genreParams === "all" || novel.genres.split(",").includes(genreParams)
       );
 
     return _novels;
-  }, [novels, author, genre, origin]);
+  }, [novels, authorParams, genreParams, originParams]);
 
   return [searchResult, handleSearch];
 }
