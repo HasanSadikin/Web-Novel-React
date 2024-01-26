@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
@@ -13,10 +13,10 @@ export function useSetBookmarkNovel(
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
 
-  useMemo(() => {
+  useEffect(() => {
     const getLike = async () => {
       if (!user.isAuthenticated) return;
-
+      setIsBookmarkLoading(true);
       const { data } = await supabase
         .from("Bookmarks")
         .select()
@@ -29,7 +29,7 @@ export function useSetBookmarkNovel(
       setIsBookmarkLoading(false);
     };
     getLike();
-  }, [id, user]);
+  }, []);
 
   const bookomarkNovel = useCallback(
     async function () {

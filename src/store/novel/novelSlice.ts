@@ -18,11 +18,13 @@ export type Novel = {
 };
 
 export type NovelState = {
-  value: Novel[] | null;
+  novels: Novel[] | null;
+  current_novel: Novel | null;
 };
 
 const initialState: NovelState = {
-  value: [],
+  novels: null,
+  current_novel: null,
 };
 
 const novelSlice = createSlice({
@@ -34,13 +36,13 @@ const novelSlice = createSlice({
       .addCase(
         getNovels.fulfilled,
         (state, action: PayloadAction<Novel[] | null>) => {
-          state.value = action.payload;
+          state.novels = action.payload;
         }
       )
       .addCase(
         getBookmarkedNovels.fulfilled,
         (state, action: PayloadAction<Novel[] | null>) => {
-          state.value = action.payload;
+          state.novels = action.payload;
         }
       );
   },
@@ -52,6 +54,7 @@ export const getBookmarkedNovels = createAsyncThunk(
     const { data } = await supabase
       .rpc("get_bookmarks_by_user_id", { userid: id })
       .returns<Novel[]>();
+
     return data;
   }
 );

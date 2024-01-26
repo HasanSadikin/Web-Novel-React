@@ -6,6 +6,8 @@ import { useScrollToTop } from "../hooks/useScrollToTop";
 function HomePage() {
   const [novels, isLoading] = useNovels();
 
+  console.log("---");
+
   useScrollToTop();
 
   return (

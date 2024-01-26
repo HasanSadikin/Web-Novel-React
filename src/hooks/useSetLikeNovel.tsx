@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSupabase } from "../utils/supabase";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
@@ -11,10 +11,10 @@ export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
 
-  useMemo(() => {
+  useEffect(() => {
     const getLike = async () => {
       if (!user.isAuthenticated) return;
-
+      setIsLikeLoading(true);
       const { data } = await supabase.from("Likes").select().eq("novel_id", id);
 
       if (data && data.length > 0) {
@@ -24,7 +24,7 @@ export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
       setIsLikeLoading(false);
     };
     getLike();
-  }, [id, user]);
+  }, []);
 
   const likeNovel = useCallback(
     async function () {

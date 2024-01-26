@@ -1,4 +1,3 @@
-import { memo } from "react";
 import BookmarkIcon from "../../icons/BookmarkIcon";
 import StarIcon from "../../icons/StarIcon";
 import LoadingButton from "../../ui/buttons/LoadingButton";
@@ -6,78 +5,66 @@ import ToggleButton from "../../ui/buttons/ToggleButton";
 
 import { useSetLikeNovel } from "../../../hooks/useSetLikeNovel";
 import { useSetBookmarkNovel } from "../../../hooks/useSetBookmarkNovel";
+import { useNavigate } from "react-router-dom";
 
-interface MemoProps {
-  value: boolean;
-  loading: boolean;
-  toggle: () => void;
-}
-
-const MemoStarButton = memo(function StarButton({
-  value,
-  loading,
-  toggle,
-}: MemoProps) {
+function StarButton({ id }: { id: number }) {
+  const [isLike, isLikeLoading, toggleLike] = useSetLikeNovel(id);
   return (
     <>
-      {loading ? (
+      {isLikeLoading ? (
         <LoadingButton />
       ) : (
-        <ToggleButton isToggled={value} onClick={toggle}>
+        <ToggleButton isToggled={isLike} onClick={toggleLike}>
           <StarIcon className="w-5 h-5" />
         </ToggleButton>
       )}
     </>
   );
-});
+}
 
-const MemoBookmarkButton = memo(function StarButton({
-  value,
-  loading,
-  toggle,
-}: MemoProps) {
+function BookmarkButton({ id }: { id: number }) {
+  const [isBookmarked, isBookmarkLoading, toggleBookmark] =
+    useSetBookmarkNovel(id);
   return (
     <>
-      {loading ? (
+      {isBookmarkLoading ? (
         <LoadingButton />
       ) : (
-        <ToggleButton isToggled={value} onClick={toggle}>
+        <ToggleButton isToggled={isBookmarked} onClick={toggleBookmark}>
           <BookmarkIcon className="w-5 h-5" />
         </ToggleButton>
       )}
     </>
   );
-});
+}
 
 interface Props {
   id: number;
   name: string;
   author: string;
+  slug: string;
 }
 
-const DetailsHeader = ({ id, name, author }: Props) => {
-  const [isLike, isLikeLoading, toggleLike] = useSetLikeNovel(id);
-  const [isBookmarked, isBookmarkLoading, toggleBookmark] =
-    useSetBookmarkNovel(id);
+const DetailsHeader = ({ slug, id, name, author }: Props) => {
+  const navigate = useNavigate();
+
+  function handleNavigateToDetails(): void {
+    navigate(`/novel/${slug}`);
+  }
 
   return (
     <div className="w-full bg-white h-16 fixed top-0 left-0 z-[10]">
       <div className="w-11/12 mx-auto grid grid-cols-2 h-full">
-        <div className="flex flex-col justify-center">
+        <div
+          className="flex flex-col justify-center"
+          onClick={handleNavigateToDetails}
+        >
           <h1 className="text-black font-semibold truncate">{name}</h1>
           <h1 className="text-gray-500 italic text-xs">by {author}</h1>
         </div>
         <div className="flex justify-end items-center gap-2 ">
-          <MemoStarButton
-            value={isLike}
-            loading={isLikeLoading}
-            toggle={toggleLike}
-          />
-          <MemoBookmarkButton
-            value={isBookmarked}
-            loading={isBookmarkLoading}
-            toggle={toggleBookmark}
-          />
+          <StarButton id={id} />
+          <BookmarkButton id={id} />
         </div>
       </div>
     </div>

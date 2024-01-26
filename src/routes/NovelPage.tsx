@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useNovel } from "../hooks/useNovels";
 import NovelDetails from "../components/novels/details/NovelDetails";
+import { useSingleNovel } from "../hooks/useSingleNovel";
 
 const NovelPage = () => {
   const params = useParams();
-  const [novel, isLoading] = useNovel(params.slug);
+  const { novel, isNovelLoading } = useSingleNovel(params.slug);
 
-  if (isLoading) {
+  if (isNovelLoading) {
     return <p>Loading...</p>;
   }
 

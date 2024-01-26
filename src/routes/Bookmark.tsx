@@ -7,7 +7,7 @@ import SkeletonList from "../components/novels/SkeletonList";
 import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const Bookmark = () => {
-  const novels = useSelector((state: RootState) => state.novels.value);
+  const novels = useSelector((state: RootState) => state.novels.novels);
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch<AppDispatch>();
   const [isLoading, setIsLoading] = useState(true);

@@ -7,7 +7,6 @@ interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 function Image({ imagePath, ...props }: Props) {
   const [image, isLoading] = useSupabaseImage(imagePath);
-  console.log("render image");
   return (
     <>
       {!isLoading && <img src={image} {...props} />}

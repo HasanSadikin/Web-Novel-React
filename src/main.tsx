@@ -11,6 +11,8 @@ import Search from "./routes/Search.tsx";
 import Bookmark from "./routes/Bookmark.tsx";
 import AccountPage from "./routes/AccountPage.tsx";
 import NovelPage from "./routes/NovelPage.tsx";
+import NovelChapterPage from "./routes/NovelChapterPage.tsx";
+import NovelLayout from "./routes/NovelLayout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,18 @@ const router = createBrowserRouter([
         element: <AccountPage />,
       },
       {
-        path: "/novel/:slug",
-        element: <NovelPage />,
+        path: "/novel",
+        element: <NovelLayout />,
+        children: [
+          {
+            path: "/novel/:slug",
+            element: <NovelPage />,
+          },
+          {
+            path: "/novel/:slug/:chapter_id",
+            element: <NovelChapterPage />,
+          },
+        ],
       },
     ],
   },
