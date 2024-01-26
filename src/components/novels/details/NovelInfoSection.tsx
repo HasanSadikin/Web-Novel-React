@@ -4,9 +4,11 @@ type Props = {
   novel_name: string;
   novel_author: string;
   novel_origin: string;
+  novel_id: number;
 };
 
 const NovelInfoSection = ({
+  novel_id,
   novel_name,
   novel_author,
   novel_origin,
@@ -15,7 +17,7 @@ const NovelInfoSection = ({
     <div className="flex flex-col gap-2 items-center pt-10 pb-6">
       <div className="flex flex-col items-center">
         <h1 className="font-bold text-xl text-center">{novel_name}</h1>
-        <NovelAnalytics className="flex gap-2 pt-3" />
+        <NovelAnalytics novel_id={novel_id} className="flex gap-2 pt-3" />
       </div>
       <h1 className="italic text-sm text-gray-500 pt-5">
         by {novel_author} - {novel_origin}

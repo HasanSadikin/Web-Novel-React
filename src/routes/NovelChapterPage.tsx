@@ -3,6 +3,7 @@ import NavigationButtons from "../components/novels/chapter/NavigationButtons";
 import { useSingleNovelChapter } from "../hooks/useSingleNovelChapter";
 import { useScrollToTop } from "../hooks/useScrollToTop";
 import { useSingleNovel } from "../hooks/useSingleNovel";
+import { useChapterViews } from "../hooks/useChapterViews";
 
 const NovelChapterPage = () => {
   const params = useParams();
@@ -10,6 +11,8 @@ const NovelChapterPage = () => {
   const slug = params.slug as string;
   const { chapter } = useSingleNovelChapter(chapter_id);
   const { novel, isNovelLoading } = useSingleNovel(slug);
+
+  useChapterViews(chapter_id);
 
   useScrollToTop();
 

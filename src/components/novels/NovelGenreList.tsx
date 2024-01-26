@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { NOVELS_SEARCH } from "../../utils/routes";
 
 interface Props {
   genres: string[];
@@ -14,7 +15,7 @@ export function NovelGenreList({ genres, amount = 5 }: Props) {
   const navigation = useNavigate();
 
   function handleClick(genre: string): void {
-    navigation("/search");
+    navigation(NOVELS_SEARCH);
     setSearchParams({ genre: genre });
   }
 

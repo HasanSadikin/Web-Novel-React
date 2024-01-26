@@ -2,6 +2,12 @@ import Avatar from "../ui/Avatar";
 import { Link, useLocation } from "react-router-dom";
 
 import { useUser } from "../../hooks/useUser";
+import {
+  HOME,
+  NOVELS_ACCOUNT,
+  NOVELS_BOOKMARKS,
+  NOVELS_SEARCH,
+} from "../../utils/routes";
 
 const BottomNavigation = () => {
   const [, isAuthenticated] = useUser();
@@ -11,24 +17,30 @@ const BottomNavigation = () => {
   return (
     <>
       <div className="btm-nav">
-        <Link to="/#" className={location.pathname === "/" ? "active" : ""}>
+        <Link to="/#" className={location.pathname === HOME ? "active" : ""}>
           <HomeNav />
         </Link>
         <Link
           to="/search#"
-          className={location.pathname.startsWith("/search") ? "active" : ""}
+          className={
+            location.pathname.startsWith(NOVELS_SEARCH) ? "active" : ""
+          }
         >
           <SearchNav />
         </Link>
         <Link
           to="/bookmark#"
-          className={location.pathname.startsWith("/bookmark") ? "active" : ""}
+          className={
+            location.pathname.startsWith(NOVELS_BOOKMARKS) ? "active" : ""
+          }
         >
           <BookmarkNav />
         </Link>
         <Link
           to="/account#"
-          className={location.pathname.startsWith("/account") ? "active" : ""}
+          className={
+            location.pathname.startsWith(NOVELS_ACCOUNT) ? "active" : ""
+          }
         >
           <Avatar isAuthenticated={isAuthenticated} />
         </Link>

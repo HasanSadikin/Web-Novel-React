@@ -2,6 +2,7 @@ import { ChangeEvent, memo, useState } from "react";
 import { useNovelChapters } from "../../../hooks/useNovelChapters";
 import ButtonModal from "./ButtonModal";
 import { useNavigate } from "react-router-dom";
+import { NOVELS_NOVEL } from "../../../utils/routes";
 
 type Props = {
   novel_id: number;
@@ -17,7 +18,9 @@ const ChapterSelector = ({ novel_slug, novel_id, novel_name }: Props) => {
   function handleReadChapter() {
     if (chapters == null) return;
     navigate(
-      `/novel/${novel_slug}/${chapter === "" ? chapters[0].id : chapter}`
+      `${NOVELS_NOVEL}/${novel_slug}/${
+        chapter === "" ? chapters[0].id : chapter
+      }`
     );
   }
 

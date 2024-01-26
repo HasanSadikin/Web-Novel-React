@@ -18,6 +18,7 @@ function NovelItem({ novel }: Props) {
       </div>
       <NovelItemDetails
         className="col-span-9 px-4 py-2"
+        novel_id={novel.id}
         slug={novel.slug}
         name={novel.novel_name}
         author={novel.author}

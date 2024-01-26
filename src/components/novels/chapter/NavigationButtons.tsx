@@ -3,6 +3,7 @@ import { useState, ChangeEvent } from "react";
 import { useNovelChapters } from "../../../hooks/useNovelChapters";
 import { Chapter } from "../../../store/chapter/chapterSlice";
 import ButtonModal from "../details/ButtonModal";
+import { NOVELS_NOVEL } from "../../../utils/routes";
 
 type Props = {
   slug: string;
@@ -30,7 +31,7 @@ const NavigationButtons = ({
 
   function handleReadChapter() {
     if (chapters == null) return;
-    navigate(`/novel/${slug}/${selectedChapter}`);
+    navigate(`${NOVELS_NOVEL}/${slug}/${selectedChapter}`);
   }
 
   function handleChapterChanged(event: ChangeEvent<HTMLSelectElement>): void {
@@ -39,7 +40,7 @@ const NavigationButtons = ({
 
   function navigateTo(to: Chapter | null) {
     if (!to) return;
-    navigate(`/novel/${slug}/${to.id}`);
+    navigate(`${NOVELS_NOVEL}/${slug}/${to.id}`);
   }
 
   return (

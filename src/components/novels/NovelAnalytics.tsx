@@ -3,16 +3,25 @@ import AnalyticsIcon from "./AnalyticsIcon";
 import { EyeIcon } from "../icons/EyeIcon";
 import StarIcon from "../icons/StarIcon";
 import BookmarkIcon from "../icons/BookmarkIcon";
+import {
+  useBookmarkCount,
+  useLikeCount,
+  useViewsCount,
+} from "../../hooks/useBookmarkCount";
 
 interface Props extends React.HtmlHTMLAttributes<HTMLUListElement> {
-  amount?: number;
+  novel_id: number;
 }
 
-function NovelAnalytics({ amount = 1200, ...props }: Props) {
+function NovelAnalytics({ novel_id, ...props }: Props) {
+  const liked = useLikeCount(novel_id);
+  const bookmarked = useBookmarkCount(novel_id);
+  const views = useViewsCount(novel_id);
+
   const data = [
-    <Eye amount={amount} />,
-    <Star amount={amount} />,
-    <Bookmark amount={amount} />,
+    <Eye amount={views} />,
+    <Star amount={liked} />,
+    <Bookmark amount={bookmarked} />,
   ];
   return (
     <ul {...props}>

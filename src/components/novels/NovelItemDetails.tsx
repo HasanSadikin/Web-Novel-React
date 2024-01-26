@@ -1,6 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import NovelAnalytics from "./NovelAnalytics";
 import { NovelGenreList } from "./NovelGenreList";
+import { NOVELS_SEARCH } from "../../utils/routes";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -10,6 +11,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   description: string;
   genres: string;
   slug: string;
+  novel_id: number;
 }
 
 const NovelItemDetails = ({
@@ -20,13 +22,14 @@ const NovelItemDetails = ({
   description,
   genres,
   slug,
+  novel_id,
   ...props
 }: Props) => {
   const [, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
   function handleSearch(key: string, value: string): void {
-    navigate("/search");
+    navigate(NOVELS_SEARCH);
     setSearchParams({ [key]: value });
   }
 
@@ -42,7 +45,10 @@ const NovelItemDetails = ({
         </span>{" "}
         -<span onClick={() => handleSearch("origin", origin)}>{origin}</span>
       </p>
-      <NovelAnalytics className="flex gap-3 text-gray-500 py-1" />
+      <NovelAnalytics
+        novel_id={novel_id}
+        className="flex gap-3 text-gray-500 py-1"
+      />
       <p className="line-clamp-3 text-xs text-gray-200 row-span-1 leading-4">
         {description}
       </p>

@@ -5,7 +5,10 @@ interface Props {
 
 const AnalyticsIcon = ({ children, amount = 1200 }: Props) => {
   function stringfy(number: number) {
-    return `${number / 1000}K`;
+    if (number < 1000) {
+      return number;
+    }
+    return `${Math.round(number / 1000)}K`;
   }
   return (
     <>

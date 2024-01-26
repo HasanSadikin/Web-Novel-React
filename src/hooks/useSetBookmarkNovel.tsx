@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
 import { useSupabase } from "../utils/supabase";
+import { NOVELS_ACCOUNT } from "../utils/routes";
 
 export function useSetBookmarkNovel(
   id: number
@@ -15,12 +16,13 @@ export function useSetBookmarkNovel(
 
   useEffect(() => {
     const getLike = async () => {
-      if (!user.isAuthenticated) return;
+      if (!user.isAuthenticated || !user.user) return;
       setIsBookmarkLoading(true);
       const { data } = await supabase
         .from("Bookmarks")
         .select()
-        .eq("novel_id", id);
+        .eq("novel_id", id)
+        .eq("user_id", user.user.id);
 
       if (data && data.length > 0) {
         setIsBookmarked(true);
@@ -57,7 +59,7 @@ export function useSetBookmarkNovel(
 
   const toggleBookmark = () => {
     if (!user.isAuthenticated) {
-      navigate("/account");
+      navigate(NOVELS_ACCOUNT);
       return;
     }
 

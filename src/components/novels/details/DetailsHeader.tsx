@@ -6,6 +6,7 @@ import ToggleButton from "../../ui/buttons/ToggleButton";
 import { useSetLikeNovel } from "../../../hooks/useSetLikeNovel";
 import { useSetBookmarkNovel } from "../../../hooks/useSetBookmarkNovel";
 import { useNavigate } from "react-router-dom";
+import { NOVELS_NOVEL } from "../../../utils/routes";
 
 function StarButton({ id }: { id: number }) {
   const [isLike, isLikeLoading, toggleLike] = useSetLikeNovel(id);
@@ -49,7 +50,7 @@ const DetailsHeader = ({ slug, id, name, author }: Props) => {
   const navigate = useNavigate();
 
   function handleNavigateToDetails(): void {
-    navigate(`/novel/${slug}`);
+    navigate(`${NOVELS_NOVEL}/${slug}`);
   }
 
   return (

@@ -21,6 +21,7 @@ export default function NovelComments({ comments, onDeleteComment }: Props) {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0 }}
+              layout
               key={x.id}
               className="my-2 grid grid-cols-12 p-5 gap-3 rounded-lg border-primary"
             >

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import HomePage from "./routes/HomePage.tsx";
 import "./index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -13,39 +12,60 @@ import AccountPage from "./routes/AccountPage.tsx";
 import NovelPage from "./routes/NovelPage.tsx";
 import NovelChapterPage from "./routes/NovelChapterPage.tsx";
 import NovelLayout from "./routes/NovelLayout.tsx";
+import NovelHomePage from "./routes/NovelHomePage.tsx";
+import HomePage from "./routes/HomePage.tsx";
+import NovelRootLayout from "./routes/NovelRootLayout.tsx";
+import {
+  HOME,
+  NOVELS_ACCOUNT,
+  NOVELS_BOOKMARKS,
+  NOVELS_HOME,
+  NOVELS_NOVEL,
+  NOVELS_SEARCH,
+} from "./utils/routes.ts";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: HOME,
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        path: HOME,
         element: <HomePage />,
       },
       {
-        path: "/search",
-        element: <Search />,
-      },
-      {
-        path: "/bookmark",
-        element: <Bookmark />,
-      },
-      {
-        path: "/account",
-        element: <AccountPage />,
-      },
-      {
-        path: "/novel",
-        element: <NovelLayout />,
+        path: NOVELS_HOME,
+        element: <NovelRootLayout />,
         children: [
           {
-            path: "/novel/:slug",
-            element: <NovelPage />,
+            path: NOVELS_HOME,
+            element: <NovelHomePage />,
           },
           {
-            path: "/novel/:slug/:chapter_id",
-            element: <NovelChapterPage />,
+            path: NOVELS_SEARCH,
+            element: <Search />,
+          },
+          {
+            path: NOVELS_BOOKMARKS,
+            element: <Bookmark />,
+          },
+          {
+            path: NOVELS_ACCOUNT,
+            element: <AccountPage />,
+          },
+          {
+            path: NOVELS_NOVEL,
+            element: <NovelLayout />,
+            children: [
+              {
+                path: `${NOVELS_NOVEL}/:slug`,
+                element: <NovelPage />,
+              },
+              {
+                path: `${NOVELS_NOVEL}/:slug/:chapter_id`,
+                element: <NovelChapterPage />,
+              },
+            ],
           },
         ],
       },

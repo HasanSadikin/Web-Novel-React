@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSupabase } from "../utils/supabase";
 import { useUser } from "./useUser";
 import { useNavigate } from "react-router-dom";
+import { NOVELS_ACCOUNT } from "../utils/routes";
 
 export type Comment = {
   id: number;
@@ -45,7 +46,7 @@ export function useNovelComments(id: number): UseComment {
 
   async function addComment(comment: string) {
     if (!isAuthenticated) {
-      navigate("/account");
+      navigate(NOVELS_ACCOUNT);
       return;
     }
 

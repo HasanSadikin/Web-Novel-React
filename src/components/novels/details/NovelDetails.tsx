@@ -16,6 +16,7 @@ const NovelDetails: FC<Props> = ({ novel }) => {
       <ImageSection novel_image={novel.image} />
       <div className="w-11/12 mx-auto ">
         <NovelInfoSection
+          novel_id={novel.id}
           novel_author={novel.author}
           novel_name={novel.novel_name}
           novel_origin={novel.origin}

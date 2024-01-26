@@ -3,6 +3,7 @@ import { useSupabase } from "../utils/supabase";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
+import { NOVELS_ACCOUNT } from "../utils/routes";
 
 export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
   const supabase = useSupabase();
@@ -13,9 +14,14 @@ export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
 
   useEffect(() => {
     const getLike = async () => {
-      if (!user.isAuthenticated) return;
+      if (!user.isAuthenticated || !user.user) return;
+
       setIsLikeLoading(true);
-      const { data } = await supabase.from("Likes").select().eq("novel_id", id);
+      const { data } = await supabase
+        .from("Likes")
+        .select()
+        .eq("novel_id", id)
+        .eq("user_id", user.user?.id);
 
       if (data && data.length > 0) {
         setIsLiked(true);
@@ -52,7 +58,7 @@ export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
 
   const toggleNovel = useCallback(() => {
     if (!user.isAuthenticated) {
-      navigate("/account");
+      navigate(NOVELS_ACCOUNT);
       return;
     }
 
