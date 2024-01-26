@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 import { useUser } from "../../hooks/useUser";
 import {
-  HOME,
   NOVELS_ACCOUNT,
   NOVELS_BOOKMARKS,
   NOVELS_HOME,

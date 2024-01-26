@@ -1,8 +1,14 @@
-const Navbar = () => {
+import { ElementRef } from "react";
+
+interface Props extends React.HTMLAttributes<ElementRef<"div">> {
+  className: string;
+}
+
+const Navbar = ({ className }: Props) => {
   return (
-    <div className="navbar bg-base-100 hidden">
+    <div className={`navbar bg-base-100 h-16 ${className}`}>
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Web Novel</a>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
