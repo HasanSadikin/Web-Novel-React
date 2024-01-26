@@ -6,6 +6,7 @@ import {
   HOME,
   NOVELS_ACCOUNT,
   NOVELS_BOOKMARKS,
+  NOVELS_HOME,
   NOVELS_SEARCH,
 } from "../../utils/routes";
 
@@ -17,11 +18,14 @@ const BottomNavigation = () => {
   return (
     <>
       <div className="btm-nav">
-        <Link to="/#" className={location.pathname === HOME ? "active" : ""}>
+        <Link
+          to={NOVELS_HOME}
+          className={location.pathname === NOVELS_HOME ? "active" : ""}
+        >
           <HomeNav />
         </Link>
         <Link
-          to="/search#"
+          to={NOVELS_SEARCH}
           className={
             location.pathname.startsWith(NOVELS_SEARCH) ? "active" : ""
           }
@@ -29,7 +33,7 @@ const BottomNavigation = () => {
           <SearchNav />
         </Link>
         <Link
-          to="/bookmark#"
+          to={NOVELS_BOOKMARKS}
           className={
             location.pathname.startsWith(NOVELS_BOOKMARKS) ? "active" : ""
           }
@@ -37,7 +41,7 @@ const BottomNavigation = () => {
           <BookmarkNav />
         </Link>
         <Link
-          to="/account#"
+          to={NOVELS_ACCOUNT}
           className={
             location.pathname.startsWith(NOVELS_ACCOUNT) ? "active" : ""
           }

@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import NovelAnalytics from "./NovelAnalytics";
 import { NovelGenreList } from "./NovelGenreList";
-import { NOVELS_SEARCH } from "../../utils/routes";
+import { NOVELS_NOVEL, NOVELS_SEARCH } from "../../utils/routes";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -35,7 +35,7 @@ const NovelItemDetails = ({
 
   return (
     <div {...props}>
-      <Link to={`/novel/${slug}`}>
+      <Link to={`${NOVELS_NOVEL}/${slug}`}>
         <h2 className="text-sm font-bold truncate">{name}</h2>
       </Link>
       <p className="italic text-gray-500 text-xs">
