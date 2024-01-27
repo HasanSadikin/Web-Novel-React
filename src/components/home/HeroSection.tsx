@@ -8,9 +8,12 @@ import SliderItem from "./SliderItem";
 
 const HeroSection = () => {
   return (
-    <div className={`w-full h-screen overflow-hidden poppins`}>
-      <div className="w-9/12 mx-auto grid grid-cols-10 grid-rows-8 gap-4 h-screen mt-32">
-        <InfinitySlider className="row-span-12 col-span-2 flex flex-col">
+    <div className={`w-full h-[38rem] overflow-hidden poppins`}>
+      <div className="w-9/12 mx-auto grid grid-cols-10 grid-rows-8 gap-4 h-[38rem] mt-32">
+        <InfinitySlider
+          className="row-span-7 col-span-2 flex flex-col"
+          direction="vertical"
+        >
           <SliderContainer className="flex flex-col" direction="up" speed={35}>
             <SliderItem className="mt-2">
               <img src={Image1} alt="" />
@@ -25,11 +28,14 @@ const HeroSection = () => {
         </InfinitySlider>
         <div className="col-span-8 lg:row-span-3 xl:row-span-2 flex flex-col justify-center">
           <h1 className="text-7xl font-semibold tracking-tighter pl-20">
-            Read Novel To <br />
-            Your Heart Content
+            Discover Your <br />
+            Favorite Stories!
           </h1>
         </div>
-        <InfinitySlider className="row-span-6 col-span-2 flex flex-col lg:mt-6 xl:mt-12">
+        <InfinitySlider
+          className="lg:row-span-4 xl:row-span-5 col-span-2 flex flex-col lg:mt-6 xl:mt-12"
+          direction="vertical"
+        >
           <SliderContainer className="flex flex-col" direction="up" speed={50}>
             <SliderItem className="mt-2">
               <img src={Image3} alt="" />
@@ -42,17 +48,16 @@ const HeroSection = () => {
             </SliderItem>
           </SliderContainer>
         </InfinitySlider>
-        <div className="col-span-6 row-span-3 lg:pt-4 xl:p-10 lg:pl-10 xl:pl-20 leading-8 text-gray-400">
+        <div className="col-span-6 lg:row-span-9 xl:row-span-10 lg:pt-4 xl:p-10 lg:pl-10 xl:pl-20 leading-8 text-gray-400">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus
-            quasi pariatur asperiores dolorum, iure odit quibusdam eos quaerat,
-            ducimus sunt cupiditate! Aspernatur, numquam? Magni nihil
-            consequatur enim quasi modi expedita.
+            Explore captivating narratives that ignite your imagination and
+            transport you to extraordinary realms. Uncover hidden gems and
+            cherished classics as you embark on your next adventure!
           </p>
           <div className="lg:mt-8 xl:mt-16 flex gap-5">
             <button className="btn btn-lg btn-primary ">Start Reading</button>
             <button className="btn btn-lg btn-primary btn-outline">
-              Search
+              Share Your Stories
             </button>
           </div>
         </div>

@@ -6,7 +6,7 @@ interface Props extends React.HTMLAttributes<ElementRef<"div">> {
 
 const Navbar = ({ className }: Props) => {
   return (
-    <div className={`navbar bg-base-100 h-16 ${className}`}>
+    <div className={`navbar h-16 ${className} poppins`}>
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">Web Novel</a>
       </div>

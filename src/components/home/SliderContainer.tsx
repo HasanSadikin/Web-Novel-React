@@ -1,4 +1,4 @@
-import classes from "./Carousel.module.css";
+import classes from "./InfinitySlider.module.css";
 
 interface SliderContainerProps {
   children: React.ReactNode;
