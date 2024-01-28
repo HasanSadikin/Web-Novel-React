@@ -10,7 +10,7 @@ import SliderItem from "./SliderItem";
 
 const HeroSection = () => {
   const md = useMediaQuery({ query: "(min-width: 768px)" });
-  const lg = useMediaQuery({ query: "(max-width: 1024px)" });
+  const lg = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const isMd = md && lg;
 
