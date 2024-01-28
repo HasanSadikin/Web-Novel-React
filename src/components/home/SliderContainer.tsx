@@ -34,7 +34,7 @@ const SliderContainer = ({
 
   return (
     <div
-      className={`flex ${className}`}
+      className={`${className}`}
       style={{
         animationName: dir,
         animationDuration: `${speed}s`,

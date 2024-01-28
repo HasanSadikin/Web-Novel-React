@@ -6,7 +6,7 @@ type SliderProps = {
 };
 
 const InfinitySlider = ({
-  className,
+  className = "",
   children,
   direction = "horizontal",
   fadeColor = "from-base-100",
@@ -29,7 +29,7 @@ const InfinitySlider = ({
 
   return (
     <>
-      <div className={`relative flex overflow-hidden ${className}`}>
+      <div className={`relative overflow-hidden ${className}`}>
         <span className={`absolute ${fadeColor} z-[10] ${spanClassTop}`}></span>
         {children}
         {children}

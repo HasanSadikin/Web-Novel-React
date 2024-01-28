@@ -4,7 +4,7 @@ type SliderItemProps = {
 };
 
 const SliderItem = ({ className, children }: SliderItemProps) => {
-  return <div className={`overflow-hidden ${className}`}>{children}</div>;
+  return <div className={`${className}`}>{children}</div>;
 };
 
 export default SliderItem;
