@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import GlowBorder from "./GlowBorder";
 import InfinitySlider from "./InfinitySlider";
 import SliderContainer from "./SliderContainer";
 import SliderItem from "./SliderItem";
+import { NOVELS_ACCOUNT } from "../../utils/routes";
 
 const TestimonySection = () => {
   const data = [
@@ -35,11 +37,13 @@ const TestimonySection = () => {
               celebrating the magic of storytelling and shared passion for
               meaningful experiences
             </p>
-            <GlowBorder className="w-full rounded-lg lg:w-52">
-              <button className="w-full btn lg:btn-lg btn-primary btn-outline">
-                Join Us
-              </button>
-            </GlowBorder>
+            <Link to={NOVELS_ACCOUNT}>
+              <GlowBorder className="w-full rounded-lg lg:w-52">
+                <button className="w-full btn lg:btn-lg btn-primary btn-outline">
+                  Join Us
+                </button>
+              </GlowBorder>
+            </Link>
           </div>
           <div className="relative h-[20rem] lg:h-full my-auto">
             <div className="top-0 left-0 flex w-full h-full gap-10 lg:absolute lg:py-10 lg:w-fit">

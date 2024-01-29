@@ -28,16 +28,16 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
   return (
     <>
       <div className="w-11/12 mx-auto mb-5">
-        <label htmlFor="my_modal_6" className="btn w-full btn-primary btn-md">
+        <label htmlFor="my_modal_6" className="w-full btn btn-primary btn-md">
           Filter
         </label>
       </div>
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box">
-          <h3 className="font-bold text-lg text-center">Filter</h3>
+          <h3 className="text-lg font-bold text-center">Filter</h3>
           <form>
-            <label className="form-control w-full max-w-xs">
+            <label className="w-full form-control">
               <div className="label">
                 <span className="label-text">Author</span>
               </div>
@@ -59,7 +59,7 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
                 ))}
               </select>
             </label>
-            <label className="form-control w-full max-w-xs">
+            <label className="w-full form-control">
               <div className="label">
                 <span className="label-text">Origin</span>
               </div>
@@ -77,7 +77,7 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
                 ))}
               </select>
             </label>
-            <label className="form-control w-full max-w-xs">
+            <label className="w-full form-control">
               <div className="label">
                 <span className="label-text">Genre</span>
               </div>
@@ -102,7 +102,7 @@ export function SearchModal({ authors, origins, genres, onSearch }: Props) {
               </button>
             </form>
             <label
-              className="btn btn-primary w-40"
+              className="w-40 btn btn-primary"
               htmlFor="my_modal_6"
               onClick={submitForm}
             >

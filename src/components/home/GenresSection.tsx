@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { NOVELS_SEARCH } from "../../utils/routes";
 import GlowBorder from "./GlowBorder";
 
 const GenresSection = () => {
@@ -84,11 +86,13 @@ const GenresSection = () => {
             holds a new adventure. Let your passion for storytelling come alive
             in these captivating tales, where endless possibilities await
           </p>
-          <GlowBorder className="w-full rounded-lg lg:w-52">
-            <button className="w-full btn btn-lg btn-primary btn-outline">
-              Find Your Genre
-            </button>
-          </GlowBorder>
+          <Link to={NOVELS_SEARCH}>
+            <GlowBorder className="w-full rounded-lg lg:w-52">
+              <button className="w-full btn btn-lg btn-primary btn-outline">
+                Find Your Genre
+              </button>
+            </GlowBorder>
+          </Link>
         </div>
       </div>
     </div>

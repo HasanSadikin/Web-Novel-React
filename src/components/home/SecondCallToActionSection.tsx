@@ -1,4 +1,5 @@
-import GlowBorder from "./GlowBorder";
+import { Link } from "react-router-dom";
+import { NOVELS_HOME } from "../../utils/routes";
 
 const SecondCallToActionSection = () => {
   return (
@@ -7,14 +8,16 @@ const SecondCallToActionSection = () => {
         Many People Are Waiting For You
       </h1>
       <div className="flex flex-col w-full gap-2 lg:gap-5 lg:w-fit lg:flex-row">
-        <button className="w-full btn lg:btn-lg btn-primary lg:w-52">
-          Start Reading
-        </button>
-        <GlowBorder className="rounded-lg">
+        <Link to={NOVELS_HOME}>
+          <button className="w-full btn lg:btn-lg btn-primary lg:w-52">
+            Start Reading
+          </button>
+        </Link>
+        {/* <GlowBorder className="rounded-lg">
           <button className="w-full btn lg:btn-lg btn-primary lg:w-52 btn-outline">
             Share Your Stories
           </button>
-        </GlowBorder>
+        </GlowBorder> */}
       </div>
     </div>
   );

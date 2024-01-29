@@ -39,6 +39,12 @@ const userSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
         state.isAuthenticated = false;
+      })
+      .addCase(signUp.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.isAuthenticated = true;
+          state.user = action.payload;
+        }
       });
   },
 });
@@ -57,6 +63,22 @@ type Payload = {
   email: string;
   password: string;
 };
+
+export const signUp = createAsyncThunk(
+  "user/signUp",
+  async (payload: Payload) => {
+    const { data, error } = await supabase.auth.signUp({
+      email: payload.email,
+      password: payload.password,
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return data.user;
+  }
+);
 
 export const login = createAsyncThunk(
   "user/login",

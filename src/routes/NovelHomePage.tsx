@@ -9,8 +9,8 @@ function NovelHomePage() {
   useScrollToTop();
 
   return (
-    <div className="mb-20">
-      <h1 className="text-center text-2xl py-10 font-bold">Home</h1>
+    <div className="mx-auto mb-20 md:w-10/12">
+      <h1 className="py-10 text-2xl font-bold text-center">Home</h1>
       {isLoading ? <SkeletonList amount={3} /> : <NovelList novels={novels} />}
     </div>
   );

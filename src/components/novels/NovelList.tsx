@@ -11,7 +11,7 @@ const NovelList = ({ novels }: Props) => {
   }
 
   return (
-    <ul className="grid grid-cols-1 gap-5 w-11/12 mx-auto ">
+    <ul className="grid w-11/12 grid-cols-1 gap-5 mx-auto lg:grid-cols-2 ">
       {novels.map((novel) => (
         <NovelItem novel={novel} key={novel.id} />
       ))}

@@ -16,7 +16,7 @@ const BottomNavigation = () => {
 
   return (
     <>
-      <div className="btm-nav">
+      <div className="btm-nav md:hidden">
         <Link
           to={NOVELS_HOME}
           className={location.pathname === NOVELS_HOME ? "active" : ""}
@@ -59,7 +59,7 @@ function HomeNav({}) {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="w-5 h-5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

@@ -18,11 +18,13 @@ import NovelRootLayout from "./routes/NovelRootLayout.tsx";
 import {
   HOME,
   NOVELS_ACCOUNT,
+  NOVELS_ACCOUNT_SIGNIN,
   NOVELS_BOOKMARKS,
   NOVELS_HOME,
   NOVELS_NOVEL,
   NOVELS_SEARCH,
 } from "./utils/routes.ts";
+import SignInPage from "./routes/SignInPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
           {
             path: NOVELS_ACCOUNT,
             element: <AccountPage />,
+          },
+          {
+            path: NOVELS_ACCOUNT_SIGNIN,
+            element: <SignInPage />,
           },
           {
             path: NOVELS_NOVEL,

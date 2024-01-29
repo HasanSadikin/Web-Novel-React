@@ -3,10 +3,11 @@ import Image1 from "../../images/2a2.webp";
 import Image2 from "../../images/cover-10-rev.webp";
 import Image3 from "../../images/novel1.webp";
 import Image4 from "../../images/ominescent-reader.webp";
-import GlowBorder from "./GlowBorder";
 import InfinitySlider from "./InfinitySlider";
 import SliderContainer from "./SliderContainer";
 import SliderItem from "./SliderItem";
+import { Link } from "react-router-dom";
+import { NOVELS_HOME } from "../../utils/routes";
 
 const HeroSection = () => {
   const md = useMediaQuery({ query: "(min-width: 768px)" });
@@ -124,14 +125,16 @@ const HeroSection = () => {
             cherished classics as you embark on your next adventure!
           </p>
           <div className="flex flex-col gap-2 mt-8 xl:mt-16 lg:flex-row lg:gap-5">
-            <button className="btn lg:btn-lg btn-primary ">
-              Start Reading
-            </button>
-            <GlowBorder className="rounded-lg">
+            <Link to={NOVELS_HOME}>
+              <button className="btn lg:btn-lg btn-primary ">
+                Start Reading
+              </button>
+            </Link>
+            {/* <GlowBorder className="rounded-lg">
               <button className="w-full btn lg:btn-lg btn-primary btn-outline">
                 Share Your Stories
               </button>
-            </GlowBorder>
+            </GlowBorder> */}
           </div>
         </div>
       </div>
