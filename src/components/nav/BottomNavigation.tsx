@@ -7,7 +7,7 @@ import {
   NOVELS_BOOKMARKS,
   NOVELS_HOME,
   NOVELS_SEARCH,
-} from "../../utils/routes";
+} from "../../routes";
 
 const BottomNavigation = () => {
   const [, isAuthenticated] = useUser();

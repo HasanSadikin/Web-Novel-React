@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import NovelAnalytics from "./NovelAnalytics";
 import { NovelGenreList } from "./NovelGenreList";
-import { NOVELS_NOVEL, NOVELS_SEARCH } from "../../utils/routes";
+import { NOVELS_NOVEL, NOVELS_SEARCH } from "../../routes";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   name: string;

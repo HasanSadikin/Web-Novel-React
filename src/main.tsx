@@ -2,20 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import RootLayout from "./routes/RootLayout.tsx";
-import { Provider } from "react-redux";
-import { store } from "./store/store.ts";
-import Search from "./routes/Search.tsx";
-import Bookmark from "./routes/Bookmark.tsx";
-import AccountPage from "./routes/AccountPage.tsx";
-import NovelPage from "./routes/NovelPage.tsx";
-import NovelChapterPage from "./routes/NovelChapterPage.tsx";
-import NovelLayout from "./routes/NovelLayout.tsx";
-import NovelHomePage from "./routes/NovelHomePage.tsx";
-import HomePage from "./routes/HomePage.tsx";
-import NovelRootLayout from "./routes/NovelRootLayout.tsx";
 import {
+  DASHBOARD,
+  DASHBOARD_CREATE_NOVEL,
+  DASHBOARD_NOVELS,
   HOME,
   NOVELS_ACCOUNT,
   NOVELS_ACCOUNT_SIGNIN,
@@ -23,8 +13,21 @@ import {
   NOVELS_HOME,
   NOVELS_NOVEL,
   NOVELS_SEARCH,
-} from "./utils/routes.ts";
-import SignInPage from "./routes/SignInPage.tsx";
+} from "./routes.ts";
+import SignInPage from "./pages/SignInPage.tsx";
+import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NovelLayout from "./layouts/NovelLayout.tsx";
+import NovelRootLayout from "./layouts/NovelRootLayout.tsx";
+import RootLayout from "./layouts/RootLayout.tsx";
+import AccountPage from "./pages/AccountPage.tsx";
+import Bookmark from "./pages/Bookmark.tsx";
+import HomePage from "./pages/HomePage.tsx";
+import NovelChapterPage from "./pages/NovelChapterPage.tsx";
+import NovelHomePage from "./pages/NovelHomePage.tsx";
+import NovelPage from "./pages/NovelPage.tsx";
+import { store } from "./store/store.ts";
+import SearchPage from "./pages/SearchPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +48,7 @@ const router = createBrowserRouter([
           },
           {
             path: NOVELS_SEARCH,
-            element: <Search />,
+            element: <SearchPage />,
           },
           {
             path: NOVELS_BOOKMARKS,
@@ -72,6 +75,20 @@ const router = createBrowserRouter([
                 element: <NovelChapterPage />,
               },
             ],
+          },
+        ],
+      },
+      {
+        path: DASHBOARD,
+        element: "",
+        children: [
+          {
+            path: DASHBOARD_NOVELS,
+            element: "",
+          },
+          {
+            path: DASHBOARD_CREATE_NOVEL,
+            element: "",
           },
         ],
       },

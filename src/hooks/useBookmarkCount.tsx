@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 
 export function useBookmarkCount(novel_id: number) {
   const supabase = useSupabase();

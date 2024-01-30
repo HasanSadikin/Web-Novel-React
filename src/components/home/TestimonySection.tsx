@@ -3,7 +3,7 @@ import GlowBorder from "./GlowBorder";
 import InfinitySlider from "./InfinitySlider";
 import SliderContainer from "./SliderContainer";
 import SliderItem from "./SliderItem";
-import { NOVELS_ACCOUNT } from "../../utils/routes";
+import { NOVELS_ACCOUNT } from "../../routes";
 
 const TestimonySection = () => {
   const data = [

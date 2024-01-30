@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
-import { NOVELS_ACCOUNT } from "../utils/routes";
+import { NOVELS_ACCOUNT } from "../routes";
 
 export function useSetLikeNovel(id: number): [boolean, boolean, () => void] {
   const supabase = useSupabase();

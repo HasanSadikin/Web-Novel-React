@@ -2,7 +2,7 @@ import { ChangeEvent, memo, useState } from "react";
 import { useNovelChapters } from "../../../hooks/useNovelChapters";
 import ButtonModal from "./ButtonModal";
 import { useNavigate } from "react-router-dom";
-import { NOVELS_NOVEL } from "../../../utils/routes";
+import { NOVELS_NOVEL } from "../../../routes";
 
 type Props = {
   novel_id: number;

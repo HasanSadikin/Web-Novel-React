@@ -4,7 +4,7 @@ interface Props {
 
 const SkeletonList = ({ amount }: Props) => {
   return (
-    <ul className="grid w-11/12 grid-cols-1 gap-5 mx-auto lg:grid-cols-3 md:grid-cols-2">
+    <ul className="grid w-11/12 grid-cols-1 gap-5 mx-auto md:grid-cols-2">
       {Array(amount)
         .fill(0)
         .map((e, i) => (

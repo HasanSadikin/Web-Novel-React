@@ -7,7 +7,7 @@ import InfinitySlider from "./InfinitySlider";
 import SliderContainer from "./SliderContainer";
 import SliderItem from "./SliderItem";
 import { Link } from "react-router-dom";
-import { NOVELS_HOME } from "../../utils/routes";
+import { NOVELS_HOME } from "../../routes";
 
 const HeroSection = () => {
   const md = useMediaQuery({ query: "(min-width: 768px)" });

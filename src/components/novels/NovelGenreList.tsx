@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { NOVELS_SEARCH } from "../../utils/routes";
+import { NOVELS_SEARCH } from "../../routes";
 
 interface Props {
   genres: string[];

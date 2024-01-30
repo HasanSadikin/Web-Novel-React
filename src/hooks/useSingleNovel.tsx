@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Novel } from "../store/novel/novelSlice";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 
 type Returns = { novel: Novel | null; isNovelLoading: boolean };
 

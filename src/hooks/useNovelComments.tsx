@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 import { useUser } from "./useUser";
 import { useNavigate } from "react-router-dom";
-import { NOVELS_ACCOUNT } from "../utils/routes";
+import { NOVELS_ACCOUNT } from "../routes";
 
 export type Comment = {
   id: number;

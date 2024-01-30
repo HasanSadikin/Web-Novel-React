@@ -1,5 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useSupabase } from "../../utils/supabase";
+import { useSupabase } from "../../hooks/useSupabase";
 
 const supabase = useSupabase();
 

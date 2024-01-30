@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 
 interface Views {
   chapter_id: number;

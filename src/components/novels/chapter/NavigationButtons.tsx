@@ -3,7 +3,7 @@ import { useState, ChangeEvent } from "react";
 import { useNovelChapters } from "../../../hooks/useNovelChapters";
 import { Chapter } from "../../../store/chapter/chapterSlice";
 import ButtonModal from "../details/ButtonModal";
-import { NOVELS_NOVEL } from "../../../utils/routes";
+import { NOVELS_NOVEL } from "../../../routes";
 
 type Props = {
   slug: string;

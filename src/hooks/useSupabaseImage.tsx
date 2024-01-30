@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSupabase } from "../utils/supabase";
+import { useSupabase } from "./useSupabase";
 
 export function useSupabaseImage(imagePath: string): [string, boolean] {
   const supabase = useSupabase();

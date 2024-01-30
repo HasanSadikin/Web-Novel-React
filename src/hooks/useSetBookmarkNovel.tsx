@@ -2,8 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
-import { useSupabase } from "../utils/supabase";
-import { NOVELS_ACCOUNT } from "../utils/routes";
+import { useSupabase } from "./useSupabase";
+import { NOVELS_ACCOUNT } from "../routes";
 
 export function useSetBookmarkNovel(
   id: number

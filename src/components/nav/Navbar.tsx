@@ -6,7 +6,7 @@ import {
   NOVELS_BOOKMARKS,
   NOVELS_HOME,
   NOVELS_SEARCH,
-} from "../../utils/routes";
+} from "../../routes";
 import { useUser } from "../../hooks/useUser";
 
 const Navbar = () => {

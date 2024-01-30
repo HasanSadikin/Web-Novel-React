@@ -1,6 +1,6 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { NOVELS_ACCOUNT_SIGNIN } from "../../utils/routes";
+import { NOVELS_ACCOUNT_SIGNIN } from "../../routes";
 
 interface Props {
   onLogin: (data: FieldValues) => void;

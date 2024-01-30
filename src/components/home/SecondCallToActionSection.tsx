@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NOVELS_HOME } from "../../utils/routes";
+import { NOVELS_HOME } from "../../routes";
 
 const SecondCallToActionSection = () => {
   return (

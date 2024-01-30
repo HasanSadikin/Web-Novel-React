@@ -1,6 +1,6 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { NOVELS_ACCOUNT } from "../../utils/routes";
+import { NOVELS_ACCOUNT } from "../../routes";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { signUp } from "../../store/user/userSlice";

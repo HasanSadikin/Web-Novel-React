@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NOVELS_SEARCH } from "../../utils/routes";
+import { NOVELS_SEARCH } from "../../routes";
 import GlowBorder from "./GlowBorder";
 
 const GenresSection = () => {
